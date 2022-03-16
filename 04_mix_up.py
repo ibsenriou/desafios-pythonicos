@@ -12,9 +12,23 @@ Exemplo:
 Assuma que a e b tem tamanho 2 ou maior.
 """
 
+
 def mix_up(a, b):
-    # +++ SUA SOLUÇÃO +++
-    return
+
+    # -------- Minha resolução ----------
+    # char2_temporario_de_a = a[:2]
+    # char2_temporario_de_b = b[:2]
+
+    # a = str.replace(a, a[:2], char2_temporario_de_b)
+    # b = str.replace(b, b[:2], char2_temporario_de_a)
+    # return ' '.join([b[:2]+a[2:], a[:2]+b[2:]])
+
+    # --- Resolução Refatorada ---
+
+    if len(a) >= 2 and len(b) >= 2:
+        return ' '.join([b[:2]+a[2:], a[:2]+b[2:]])
+    else:
+        return "A palavra informada deve ter ao menos 2 caracteres"
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
@@ -42,3 +56,4 @@ if __name__ == '__main__':
     test(mix_up, ('dog', 'dinner'), 'dig donner')
     test(mix_up, ('gnash', 'sport'), 'spash gnort')
     test(mix_up, ('pezzy', 'firm'), 'fizzy perm')
+    test(mix_up, ('a', 'mix'), 'A palavra informada deve ter ao menos 2 caracteres')
