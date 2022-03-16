@@ -9,9 +9,14 @@ por 'good' e retorne a string resultante.
 Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 """
 
+
 def not_bad(s):
-    # +++ SUA SOLUÇÃO +++
-    return
+    if s.find('bad') > s.find('not'):
+        palavra_ate_bad = s[:s.find('not')]
+        palavra_apos_not = s[s.find('bad') + 3:]
+        s = palavra_ate_bad + 'good' + palavra_apos_not
+
+    return s
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
