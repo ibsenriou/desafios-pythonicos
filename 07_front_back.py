@@ -10,9 +10,20 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
+import math
+
+
 def front_back(a, b):
-    # +++ SUA SOLUÇÃO +++
-    return
+
+    """ Implementação 1: Sucesso | Utilização de operadores divididos em variáveis"""
+    # index_a = math.ceil(len(a) / 2)
+    # index_b = math.ceil(len(b) / 2)
+    #
+    # return a[:index_a] + b[:index_b] + a[index_a:] + b[index_b:]
+
+    """ Implementação 2: Sucesso | Utilização de list comprehension"""
+    resultado = [math.ceil(len(string) / 2) for string in (a, b)]
+    return a[:resultado[0]] + b[:resultado[1]] + a[resultado[0]:] + b[resultado[1]:]
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
