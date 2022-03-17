@@ -8,9 +8,23 @@ Exemplo: [1, 2, 2, 3]
 Irá retornar: [1, 2, 3]
 """
 
+
 def remove_adjacent(nums):
-    # +++ SUA SOLUÇÃO +++
-    return
+    result = []
+    from itertools import zip_longest, islice
+    '''criou duas variáveis f first s second
+    o zip se baseia na lista menor. O zip_longest se baseia na maior.
+    No caso da lista [1,2,2,3]:
+    Na primeira rodada do laço for, nos parâmetros de zip_longest, em nums ele pega o 
+    número 1 e o slice pega o 2 (o número 1 indica para pegar no índice 1) e o None é
+    para o caso do número de elementos entre as listas serem diferentes.
+    Então nas rodadas do for ele monta as tuplas (1,2),(2,2),(2,3).
+    Se dentro das tuplas os elementos forem diferentes, vão para a nova lista. 
+    Senão não entra'''
+    for f, s in zip_longest(nums, islice(nums, 1, None)):
+        if f != s:
+            result.append(f)
+    return result
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
